@@ -1,4 +1,4 @@
-4 -Chegou a hora de mostrar o quanto você sabe colocar no papel (ou
+4 - Chegou a hora de mostrar o quanto você sabe colocar no papel (ou
 code) o que pensa. Você deve pensar, modelar, programar e testar
 um modelo de classes baseado em uma situação da vida real.
 
@@ -17,10 +17,16 @@ Abstrações:
 - Todo produto pode fazer:
 
             show output -> Produto Tenis - R$199,00
+
             showDetails output -> Produto Tenis - R$199,00
-                                    @maria: ótimo custo-beneficio@joao: ruim
+                                    @maria: ótimo custo-beneficio
+                                    @joao: ruim
 
             addComentario - precisa receber o texto e o nome do usuario (username) que vai adicionar o comentario
+
             addAvaliacao - precisa do numero (1 a 5) e o nome do usuario (username) que adicionou a avalicao
 
 OBS: Armazenar os dados em um banco de dados em memória (listas).
+
+- UTILS -
+  console.log("\n---------------------\n");
