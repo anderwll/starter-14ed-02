@@ -8,4 +8,16 @@ export abstract class Base {
     this._id = randomUUID();
     this._nome = nome;
   }
+
+  public get id(): string {
+    return this._id;
+  }
+
+  public get nome(): string {
+    return this._nome;
+  }
+
+  public visualizar(): void {
+    console.log(`Nome: ${this._nome}`);
+  }
 }
