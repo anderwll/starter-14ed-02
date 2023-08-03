@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-weight: bold;
+  color: #ffff;
+  font-size: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.section-img {
+  width: 100vw;
+  height: 500px;
+  background-image: url(../public/assets/img-ocean.jpg);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
