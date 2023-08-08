@@ -1,11 +1,11 @@
 import SectionWrapper from "./SectionWrapper";
 
-interface SectionImgProps {
+interface ContentImgProps {
   title: string;
   height: string;
 }
 
-function SectionImg(props: SectionImgProps) {
+function ContentImg(props: ContentImgProps) {
   return (
     <SectionWrapper height={props.height}>
       <h1>{props.title}</h1>
@@ -13,4 +13,4 @@ function SectionImg(props: SectionImgProps) {
   );
 }
 
-export default SectionImg;
+export default ContentImg;
