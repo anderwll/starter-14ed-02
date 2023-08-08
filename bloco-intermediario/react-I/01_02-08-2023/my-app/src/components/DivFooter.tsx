@@ -8,7 +8,7 @@ const DivFooter = styled.div<DivFooterProps>`
   display: flex;
   flex-direction: ${(props) => props.flexDirection};
   justify-content: center;
-  gap: 20px;
+  gap: 25px;
 `;
 
 export default DivFooter;

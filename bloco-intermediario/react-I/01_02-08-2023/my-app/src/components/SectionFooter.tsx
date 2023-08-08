@@ -17,7 +17,7 @@ const SectionFooter = styled.footer`
   a {
     text-decoration: none;
     color: ${(props) => props.theme.primary};
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
   }
 

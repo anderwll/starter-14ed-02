@@ -13,7 +13,7 @@ function Footer() {
           <Link to="/">Terms of Use</Link>
           <Link to="/">Privacy Politic</Link>
         </DivFooter>
-        <span>@copyright 2023 - Growdev 14ª edition - 02</span>
+        <span>@Copyright 2023 - Growdev 14ª edition - 02</span>
       </DivFooter>
       <DivFooter flexDirection="row">
         <BsFacebook />
