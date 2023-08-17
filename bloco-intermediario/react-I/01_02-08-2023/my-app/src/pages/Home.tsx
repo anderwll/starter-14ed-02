@@ -7,7 +7,7 @@ import Footer from "../components/Footer";
 function Home() {
   return (
     <HomeMain>
-      <ContentImg title="Minha primeira página Vite + React" height="500px" />
+      <ContentImg title="Minha primeira página Vite + React!" height="500px" />
       <ContentCards />
       <ContentText bgImg="../public/assets/img-phone.jpg" />
       <ContentText
