@@ -10,6 +10,10 @@ interface TableProps {
   data: Array<Pessoa>;
 }
 
+function verMais(dados: Pessoa) {
+  alert(`Detalhes de ${dados.nome}`);
+}
+
 function Tabela(props: TableProps) {
   return (
     <TableContainer>
@@ -29,7 +33,7 @@ function Tabela(props: TableProps) {
               <TableCell>{item.nome}</TableCell>
               <TableCell>{item.sobrenome}</TableCell>
               <TableCell>
-                <ButtonStyled>Ver mais</ButtonStyled>
+                <ButtonStyled onClick={() => verMais(item)}>Ver mais</ButtonStyled>
               </TableCell>
             </TableRow>
           ))}

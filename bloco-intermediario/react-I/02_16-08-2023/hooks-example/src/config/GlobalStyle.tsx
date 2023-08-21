@@ -15,6 +15,10 @@ const GlobalStyle = createGlobalStyle`
     width: 100vw;
     height: 100vh;
   }
+
+  h1 {
+    margin-top: 20px;
+  }
 `;
 
 export default GlobalStyle;
