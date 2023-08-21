@@ -1,10 +1,13 @@
 import { useState } from 'react';
-import ButtonStyled from './ButtonStyled';
-import InputStyled from './InputStyled';
+import ButtonStyled from '../ButtonStyled';
+import InputStyled from '../InputStyled';
+import Tabela from '../Tabela';
+import DivForm from './DivForm';
+import FormStyled from './FormStyled';
 
 type TipoInput = 'nome' | 'sobrenome';
 
-interface Pessoa {
+export interface Pessoa {
   nome: string;
   sobrenome: string;
 }
@@ -52,31 +55,31 @@ function Formulario() {
 
   return (
     <div>
-      <form
+      <FormStyled
         onSubmit={(e) => {
           e.preventDefault();
           enviarFormulario();
         }}
       >
-        <p>Nome:</p>
-        <InputStyled value={nome} onChange={(e) => capturaValor('nome', e.target.value)} />
+        <DivForm>
+          <p>Nome:</p>
+          <InputStyled value={nome} onChange={(e) => capturaValor('nome', e.target.value)} />
+        </DivForm>
 
-        <p>Sobrenome:</p>
-        <InputStyled
-          value={sobrenome}
-          onChange={(e) => capturaValor('sobrenome', e.target.value)}
-        />
+        <DivForm>
+          <p>Sobrenome:</p>
+          <InputStyled
+            value={sobrenome}
+            onChange={(e) => capturaValor('sobrenome', e.target.value)}
+          />
+        </DivForm>
 
-        <ButtonStyled type="submit">Enviar</ButtonStyled>
-      </form>
+        <DivForm>
+          <ButtonStyled type="submit">Enviar</ButtonStyled>
+        </DivForm>
+      </FormStyled>
 
-      {lista.map((item, index) => (
-        <div key={index}>
-          <br />
-          <p>Nome: {item.nome}</p>
-          <p>Sobrenome: {item.sobrenome}</p>
-        </div>
-      ))}
+      <Tabela data={lista} />
     </div>
   );
 }
