@@ -75,7 +75,9 @@ function Formulario() {
         </DivForm>
 
         <DivForm>
-          <ButtonStyled type="submit">Enviar</ButtonStyled>
+          <ButtonStyled color="#5bf54c" type="submit">
+            Enviar
+          </ButtonStyled>
         </DivForm>
       </FormStyled>
 
