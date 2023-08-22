@@ -9,10 +9,9 @@ import TableStyled from './TableStyled';
 
 interface TableProps {
   data: Array<Pessoa>;
-}
-
-function verMais(dados: Pessoa) {
-  alert(`Detalhes de ${dados.nome}`);
+  handleView: (id: string) => void;
+  handleEdit: (id: string) => void;
+  handleDelete: (id: string) => void;
 }
 
 function Tabela(props: TableProps) {
@@ -34,13 +33,13 @@ function Tabela(props: TableProps) {
               <TableCell>{item.nome}</TableCell>
               <TableCell>{item.sobrenome}</TableCell>
               <TableCellActions>
-                <ButtonStyled color="#a6a6a6" onClick={() => verMais(item)}>
+                <ButtonStyled color="#a6a6a6" onClick={() => props.handleView(item.id)}>
                   Ver mais
                 </ButtonStyled>
-                <ButtonStyled color="#2329cd" onClick={() => verMais(item)}>
+                <ButtonStyled color="#2329cd" onClick={() => props.handleEdit(item.id)}>
                   Editar
                 </ButtonStyled>
-                <ButtonStyled color="#e90d0d" onClick={() => verMais(item)}>
+                <ButtonStyled color="#e90d0d" onClick={() => props.handleDelete(item.id)}>
                   Apagar
                 </ButtonStyled>
               </TableCellActions>

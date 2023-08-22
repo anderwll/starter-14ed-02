@@ -10,8 +10,8 @@ const ButtonStyled = styled.button<ButtonStyledProps>`
   padding: 10px 5px;
   background-color: ${(props) => props.color};
   color: #ffff;
-  border: none;
-  border-radius: 10px;
+  border: 1px solid ${(props) => props.color};
+  border-radius: 5px;
   margin-top: 10px;
   cursor: pointer;
 `;
