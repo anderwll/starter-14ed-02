@@ -14,9 +14,10 @@ export interface Pessoa {
   id: string;
   nome: string;
   sobrenome: string;
+  nascimento: string;
 }
 
-// formulario({nome, sobrenome}) formulario.nome, formulario.sobrenome
+// formulario({nome, sobrenome}) => formulario.nome, formulario.sobrenome
 
 function Formulario() {
   const [nome, setNome] = useState('');
@@ -25,6 +26,8 @@ function Formulario() {
   const [aberto, setAberto] = useState(false);
   const [mensagem, setMensagem] = useState('');
   const [cor, setCor] = useState<CorFeedback>('');
+
+  const [nascimento, setNascimento] = useState('');
 
   function capturaValor(tipo: TipoInput, valor: string) {
     switch (tipo) {
@@ -57,10 +60,20 @@ function Formulario() {
       return;
     }
 
+    // VALIDA SE A DATA É FUTURA
+    const dataAtual = new Date();
+    const dataInput = new Date(nascimento);
+
+    if (dataInput > dataAtual) {
+      alerta('A data de nascimento não pode ser ser maior que a atual.', 'warning');
+      return;
+    }
+
     const dadosFormulario: Pessoa = {
       id: uuidv4(),
       nome: nome,
-      sobrenome: sobrenome
+      sobrenome: sobrenome,
+      nascimento: nascimento
     };
 
     // UM PARAMETRO - [] = ...lista (atual) + {}
@@ -74,7 +87,9 @@ function Formulario() {
   }
 
   function verMais(id: string) {
-    alert(`O id é ${id}`);
+    const encontrado = lista.find((item) => item.id === id);
+
+    alert(`O id é ${encontrado?.id}, ${encontrado?.nome}`);
   }
 
   function alerta(mensagem: string, cor: CorFeedback) {
@@ -105,6 +120,15 @@ function Formulario() {
           <InputStyled
             value={sobrenome}
             onChange={(e) => capturaValor('sobrenome', e.target.value)}
+          />
+        </DivForm>
+
+        <DivForm>
+          <p>Nascimento:</p>
+          <InputStyled
+            type="date"
+            value={nascimento}
+            onChange={(e) => setNascimento(e.target.value)}
           />
         </DivForm>
 

@@ -23,6 +23,7 @@ function Tabela(props: TableProps) {
             <TableHeader>ID</TableHeader>
             <TableHeader>Nome</TableHeader>
             <TableHeader>Sobrenome</TableHeader>
+            <TableHeader>Nascimento</TableHeader>
             <TableHeader>Ações</TableHeader>
           </TableRow>
         </thead>
@@ -32,6 +33,7 @@ function Tabela(props: TableProps) {
               <TableCell>{index}</TableCell>
               <TableCell>{item.nome}</TableCell>
               <TableCell>{item.sobrenome}</TableCell>
+              <TableCell>{item.nascimento}</TableCell>
               <TableCellActions>
                 <ButtonStyled color="#a6a6a6" onClick={() => props.handleView(item.id)}>
                   Ver mais
