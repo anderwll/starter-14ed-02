@@ -1,3 +1,4 @@
+import { isFuture } from 'date-fns';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import ButtonStyled from '../ButtonStyled';
@@ -60,14 +61,15 @@ function Formulario() {
       return;
     }
 
-    // VALIDA SE A DATA É FUTURA
-    const dataAtual = new Date();
-    const dataInput = new Date(nascimento);
+    const data = new Date(nascimento);
+    const dataFutura = isFuture(data);
 
-    if (dataInput > dataAtual) {
-      alerta('A data de nascimento não pode ser ser maior que a atual.', 'warning');
+    if (dataFutura) {
+      alerta('Não é possivel cadastrar uma data futura.', 'warning');
       return;
     }
+
+    console.log(dataFutura);
 
     const dadosFormulario: Pessoa = {
       id: uuidv4(),
