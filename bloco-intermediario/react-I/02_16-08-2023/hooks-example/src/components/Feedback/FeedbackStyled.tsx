@@ -4,7 +4,7 @@ export type CorFeedback = 'success' | 'error' | 'info' | 'warning' | '';
 
 interface FeedbackStyledProps {
   cor: CorFeedback;
-  mostrar?: boolean;
+  mostrar: boolean;
 }
 
 const FeedbackStyled = styled.div<FeedbackStyledProps>`
@@ -14,7 +14,7 @@ const FeedbackStyled = styled.div<FeedbackStyledProps>`
   padding: 16px;
   color: #ffff;
   border-radius: 5px;
-  visibility: ${(props) => (props.mostrar ? 'visible' : 'hidden')};
+  visibility: ${(props) => (props.mostrar == true ? 'visible' : 'hidden')};
 
   p {
     font-size: 1.2rem;

@@ -3,7 +3,7 @@ import FeedbackStyled from './FeedbackStyled';
 interface FeedbackProps {
   cor: 'success' | 'error' | 'info' | 'warning' | '';
   texto: string;
-  show?: boolean;
+  show: boolean;
 }
 
 function Feedback(props: FeedbackProps) {

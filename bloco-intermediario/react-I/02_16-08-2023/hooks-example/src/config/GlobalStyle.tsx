@@ -14,6 +14,7 @@ const GlobalStyle = createGlobalStyle`
     flex-direction: column;
     width: 100vw;
     height: 100vh;
+    background-color: #f7f7f7;
   }
 
   h1 {
