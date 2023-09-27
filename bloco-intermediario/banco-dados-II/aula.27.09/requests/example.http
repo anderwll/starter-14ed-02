@@ -1,0 +1,13 @@
+@HOST = http://localhost:8080 
+
+POST {{HOST}}/auth HTTP/1.1
+Content-Type: application/json 
+
+{
+    "email": "",
+    "password": ""
+}
+
+GET {{HOST}}/recruiter HTTP/1.1
+Content-Type: application/json 
+Authorization: 'TOKEN'
