@@ -1,7 +1,5 @@
 import { Request, Response } from "express";
-import { CrimeService } from "../services/crime.service";
-import { CriminalService } from "../services/criminal.service";
-import { WeaponService } from "../services/weapon.service";
+import { CrimeService, CriminalService, WeaponService } from "../services";
 
 export class CrimeController {
   public async create(req: Request, res: Response) {

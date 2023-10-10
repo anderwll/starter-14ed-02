@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { WeaponService } from "../services/weapon.service";
+import { WeaponService } from "../services";
 
 export class WeaponController {
   public async create(req: Request, res: Response) {

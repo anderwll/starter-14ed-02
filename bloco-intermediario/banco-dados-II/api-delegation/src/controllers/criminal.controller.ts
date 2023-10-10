@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { CriminalService } from "../services/criminal.service";
+import { CriminalService } from "../services";
 
 export class CriminalController {
   public async create(req: Request, res: Response) {
