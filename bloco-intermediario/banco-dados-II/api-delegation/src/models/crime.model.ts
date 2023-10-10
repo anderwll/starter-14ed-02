@@ -10,7 +10,7 @@ export class Crime {
     private _victims: string,
     private _criminal: Criminal,
     private _weapon: Weapon,
-    private _address?: string
+    private _address?: string | null
   ) {}
 
   public toJson() {
@@ -19,8 +19,8 @@ export class Crime {
       description: this._description,
       crimeDate: this._crimeDate,
       victims: this._victims,
-      criminal: this._criminal,
-      weapon: this._weapon,
+      criminal: this._criminal.toJSON(),
+      weapon: this._weapon.toJSON(),
     };
   }
 }

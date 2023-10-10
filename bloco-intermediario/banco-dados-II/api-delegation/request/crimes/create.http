@@ -1,0 +1,14 @@
+@HOST = http://localhost:8080 
+
+POST {{HOST}}/crimes HTTP/1.1
+Content-Type: application/json 
+
+{
+    "description": "No dia tal, foi roubado um celular de um individuo.", 
+    "crimeDate": "1998-08-12T22:45:28.029Z",
+    "article": "Artigo 157",
+    "severity": 5,
+    "victims": "Maria, Joana, Leonardo",
+    "criminalId": "c55a0d3f-a20f-44ab-89a2-2f68246dc717", 
+    "weaponId": "34238170-6093-44c2-b2a8-9a22942beb09"
+}

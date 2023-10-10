@@ -1,0 +1,12 @@
+@HOST = http://localhost:8080 
+
+POST {{HOST}}/criminals HTTP/1.1
+Content-Type: application/json 
+
+{
+    "name": "João Perreira",
+    "birthDate": "1998-08-12T22:45:28.029Z",
+    "gender": "Masculino",
+    "cpf": "09988877733",
+    "description": "Criminoso alto."
+}
