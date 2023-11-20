@@ -1,10 +1,7 @@
-import Typography from "@mui/material/Typography";
+import AppBar from "../components/AppBar";
+
 function Home() {
-  return (
-    <Typography variant="h2" color="initial">
-      Home
-    </Typography>
-  );
+  return <AppBar />;
 }
 
 export default Home;
