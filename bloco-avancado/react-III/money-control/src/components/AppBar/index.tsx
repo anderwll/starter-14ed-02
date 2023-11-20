@@ -92,7 +92,7 @@ export function AppBar() {
             <StyledInputBase
               placeholder="Search…"
               inputProps={{ "aria-label": "search" }}
-              onChange={(e) => setSearch(e.target.value)}
+              onChange={(e: any) => setSearch(e.target.value)}
             />
           </Search>
         </Toolbar>

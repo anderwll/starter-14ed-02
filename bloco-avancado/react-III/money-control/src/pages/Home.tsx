@@ -5,7 +5,7 @@ function Home() {
   return (
     <>
       <AppBar />
-      <FloatButton />
+      <FloatButton handleClick={ () => alert('Abrir modal!')}/>
     </>
   );
 }
