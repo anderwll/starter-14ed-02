@@ -1,34 +1,45 @@
 import {
-    Box,
-    Button,
-    FormControl,
-    Grid,
-    InputLabel,
-    MenuItem,
-    Modal as ModalMui,
-    Select,
-    TextField,
-    Typography,
+  Box,
+  Button,
+  FormControl,
+  Grid,
+  InputLabel,
+  MenuItem,
+  Modal as ModalMui,
+  Select,
+  TextField,
+  Typography,
 } from "@mui/material";
+import React, { useState } from "react";
 
 const style = {
-  position: "absolute" as const,
+  position: "absolute",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 400,
   bgcolor: "background.paper",
-  border: "2px solid #000",
   boxShadow: 24,
   p: 4,
 };
 
-interface ModalProps{
-    open:boolean
-    handleClose: () => void
+interface ModalProps {
+  open: boolean;
+  handleClose: () => void;
 }
 
-function Modal(props:ModalProps) {
+function Modal(props: ModalProps) {
+  const [selected, setSelected] = useState("");
+
+  function handleSubmit(ev: React.FormEvent<HTMLFormElement>) {
+    ev.preventDefault();
+
+    console.log({
+      value: ev.currentTarget["value-input"].value,
+      type: selected,
+      description: ev.currentTarget["description-input"].value,
+    });
+  }
 
   return (
     <>
@@ -38,7 +49,7 @@ function Modal(props:ModalProps) {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
+        <Box component="form" sx={style} onSubmit={handleSubmit}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <Typography id="modal-modal-title" variant="h6" component="h2">
@@ -48,15 +59,22 @@ function Modal(props:ModalProps) {
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                id="value"
+                id="value-input"
                 label="Valor"
                 variant="outlined"
+                type="number"
               />
             </Grid>
             <Grid item xs={12}>
               <FormControl fullWidth>
                 <InputLabel id="label-type">Tipo</InputLabel>
-                <Select labelId="label-type" id="type" label="Tipo">
+                <Select
+                  labelId="label-type"
+                  id="type-input"
+                  label="Tipo"
+                  value={selected}
+                  onChange={(ev: any) => setSelected(ev.target.value)}
+                >
                   <MenuItem value={"income"}>Entrada</MenuItem>
                   <MenuItem value={"outcome"}>Saída</MenuItem>
                 </Select>
@@ -65,7 +83,7 @@ function Modal(props:ModalProps) {
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                id="description"
+                id="description-input"
                 label="Descrição"
                 variant="outlined"
                 multiline
@@ -73,8 +91,16 @@ function Modal(props:ModalProps) {
               />
             </Grid>
             <Grid item xs={12} display={"flex"} justifyContent={"end"} gap={1}>
-              <Button variant="text" color="inherit">Cancelar</Button>
-              <Button variant="contained">Cadastrar</Button>
+              <Button
+                onClick={props.handleClose}
+                variant="text"
+                color="inherit"
+              >
+                Cancelar
+              </Button>
+              <Button type="submit" variant="contained">
+                Cadastrar
+              </Button>
             </Grid>
           </Grid>
         </Box>
