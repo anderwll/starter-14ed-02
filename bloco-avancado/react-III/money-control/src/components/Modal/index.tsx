@@ -58,6 +58,7 @@ function Modal(props: ModalProps) {
             </Grid>
             <Grid item xs={12}>
               <TextField
+                required
                 fullWidth
                 id="value-input"
                 label="Valor"
@@ -67,11 +68,12 @@ function Modal(props: ModalProps) {
             </Grid>
             <Grid item xs={12}>
               <FormControl fullWidth>
-                <InputLabel id="label-type">Tipo</InputLabel>
+                <InputLabel id="label-type">Tipo *</InputLabel>
                 <Select
+                  required
                   labelId="label-type"
                   id="type-input"
-                  label="Tipo"
+                  label="Tipo *"
                   value={selected}
                   onChange={(ev: any) => setSelected(ev.target.value)}
                 >
@@ -82,6 +84,7 @@ function Modal(props: ModalProps) {
             </Grid>
             <Grid item xs={12}>
               <TextField
+                required
                 fullWidth
                 id="description-input"
                 label="Descrição"

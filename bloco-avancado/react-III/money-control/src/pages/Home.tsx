@@ -2,20 +2,20 @@ import { useState } from "react";
 import AppBar from "../components/AppBar";
 import FloatButton from "../components/FloatButton";
 import Modal from "../components/Modal";
-
+import ListTransactions from "../components/ListTransactions";
 
 function Home() {
+  const [open, setOpen] = useState(false);
 
-  const [open,setOpen] = useState(false)
-
-  function handleModal(){
-    setOpen(!open)
+  function handleModal() {
+    setOpen(!open);
   }
 
   return (
     <>
       <AppBar />
-      <FloatButton handleClick={ handleModal } />
+      <ListTransactions />
+      <FloatButton handleClick={handleModal} />
       <Modal open={open} handleClose={handleModal} />
     </>
   );
