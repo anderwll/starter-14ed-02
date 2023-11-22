@@ -11,6 +11,8 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { cadastrar } from "../../store/modules/carteira/carteira.slice";
 
 const style = {
   position: "absolute",
@@ -29,16 +31,22 @@ interface ModalProps {
 }
 
 function Modal(props: ModalProps) {
-  const [selected, setSelected] = useState("");
+  const [selected, setSelected] = useState<"income" | "outcome">("income");
+  const dispatch = useDispatch();
 
   function handleSubmit(ev: React.FormEvent<HTMLFormElement>) {
     ev.preventDefault();
 
-    console.log({
-      value: ev.currentTarget["value-input"].value,
+    const novaTransacao = {
+      id: new Date().getTime(),
+      value: Number(ev.currentTarget["value-input"].value),
       type: selected,
       description: ev.currentTarget["description-input"].value,
-    });
+      createdAt: new Date(),
+    };
+
+    dispatch(cadastrar(novaTransacao));
+    props.handleClose();
   }
 
   return (

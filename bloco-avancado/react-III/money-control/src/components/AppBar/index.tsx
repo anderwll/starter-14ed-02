@@ -8,7 +8,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { alpha, styled } from "@mui/material/styles";
 import { useEffect, useState } from "react";
-import database from "../../data/mock";
+import { useAppSelector } from "../../store/hooks";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -53,8 +53,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export function AppBar() {
-  const balance = database.balance;
-
+  const carteira = useAppSelector((state) => state.carteira);
   const [search, setSearch] = useState("");
 
   useEffect(() => {
@@ -83,7 +82,7 @@ export function AppBar() {
             Money Control
           </Typography>
           <Typography variant="h6" pr={2}>
-            R$ {balance.toFixed(2)}
+            R$ {carteira.balance.toFixed(2)}
           </Typography>
           <Search>
             <SearchIconWrapper>
