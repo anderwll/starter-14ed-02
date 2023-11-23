@@ -1,6 +1,17 @@
 import { Box, Button, TextField } from "@mui/material";
+import React from "react";
 
 function FormCadastro() {
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    console.log({
+      email: event.currentTarget.email.value,
+      senha: event.currentTarget.senha.value,
+      reSenha: event.currentTarget.reSenha.value,
+    });
+  }
+
   return (
     <Box
       component="form"
@@ -9,23 +20,24 @@ function FormCadastro() {
       }}
       noValidate
       autoComplete="off"
+      onSubmit={handleSubmit}
     >
       <TextField
-        id="outlined-basic"
+        id="email"
         label="Email"
         variant="outlined"
         required
         fullWidth
       />
       <TextField
-        id="outlined-basic"
+        id="senha"
         label="Senha"
         variant="outlined"
         required
         fullWidth
       />
       <TextField
-        id="outlined-basic"
+        id="reSenha"
         label="Repetir senha"
         variant="outlined"
         required
