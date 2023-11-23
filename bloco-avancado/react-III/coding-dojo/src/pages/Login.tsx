@@ -3,12 +3,12 @@ import LeftSideBar from "../components/LeftSidebar/LeftSideBar";
 import SignInSide from "../components/RightSidebar/SignInSide";
 
 function Login() {
-    return (
-      <Grid container width="100vw" height="100vh">
-        <LeftSideBar />
-        <SignInSide />
-      </Grid>
-    );
+  return (
+    <Grid container height="100vh">
+      <LeftSideBar />
+      <SignInSide />
+    </Grid>
+  );
 }
 
-export default Login
+export default Login;
