@@ -131,7 +131,6 @@ export class AlunoService {
         email: dados.email,
         password: dados.senha,
       },
-      include: { endereco: true },
     });
 
     if (!alunoEncontrado) {
@@ -142,7 +141,7 @@ export class AlunoService {
       };
     }
 
-    const alunoModel = this.mapToModel(alunoEncontrado);
+    const alunoModel = this.mapToModel({ ...alunoEncontrado, endereco: null });
 
     const jwt = new JWTAdapter(envs.JWT_SECRET_KEY, envs.JWT_EXPIRE_IN);
     const token = jwt.gerarToken(alunoModel.toJSON());
