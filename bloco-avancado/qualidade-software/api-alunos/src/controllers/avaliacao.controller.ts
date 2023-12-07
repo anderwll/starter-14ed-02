@@ -5,9 +5,10 @@ export class AvaliacaoController {
   public async cadastrar(req: Request, res: Response) {
     try {
       const { modulo, nota, idAluno } = req.body;
+      const aluno = req.authUser;
 
       const service = new AvaliacaoService();
-      const response = await service.criar({ modulo, nota, idAluno });
+      const response = await service.criar({ modulo, nota, idAluno: aluno.id });
 
       return res.status(response.code).json(response);
     } catch (error: any) {
@@ -37,11 +38,14 @@ export class AvaliacaoController {
 
   public async listarPorID(req: Request, res: Response) {
     try {
-      const { idAluno } = req.body;
+      const aluno = req.authUser;
       const { id } = req.params;
 
       const service = new AvaliacaoService();
-      const response = await service.listarPorID({ idAluno, idAvaliacao: id });
+      const response = await service.listarPorID({
+        idAluno: aluno.id,
+        idAvaliacao: id,
+      });
 
       return res.status(response.code).json(response);
     } catch (error: any) {
@@ -55,12 +59,13 @@ export class AvaliacaoController {
 
   public async atualizar(req: Request, res: Response) {
     try {
-      const { idAluno, modulo, nota } = req.body;
+      const { modulo, nota } = req.body;
+      const aluno = req.authUser;
       const { id } = req.params;
 
       const service = new AvaliacaoService();
       const response = await service.atualizar({
-        idAluno,
+        idAluno: aluno.id,
         idAvaliacao: id,
         modulo,
         nota,
@@ -78,11 +83,14 @@ export class AvaliacaoController {
 
   public async deletar(req: Request, res: Response) {
     try {
-      const { idAluno } = req.body;
+      const aluno = req.authUser;
       const { id } = req.params;
 
       const service = new AvaliacaoService();
-      const response = await service.deletar({ idAluno, idAvaliacao: id });
+      const response = await service.deletar({
+        idAluno: aluno.id,
+        idAvaliacao: id,
+      });
 
       return res.status(response.code).json(response);
     } catch (error: any) {

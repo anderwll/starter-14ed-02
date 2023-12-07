@@ -11,8 +11,6 @@ export class JWTAdapter {
   public decodeToken(token: string): any {
     const dado = jwt.verify(token, this._secret);
 
-    console.log(" TOKEN ERRADO ", dado);
-
     if (!dado) return undefined;
 
     return dado;
