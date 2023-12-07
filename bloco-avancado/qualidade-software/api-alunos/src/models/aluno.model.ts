@@ -1,3 +1,4 @@
+import { ETipoAluno } from "../enum/aluno.enum";
 import { Endereco } from "./endereco.model";
 
 export class Aluno {
@@ -6,6 +7,7 @@ export class Aluno {
     private _nome: string,
     private _email: string,
     private _senha: string,
+    private _tipo: ETipoAluno,
     private _idade?: number,
     private _endereco?: Endereco
   ) {}
@@ -26,6 +28,10 @@ export class Aluno {
     return this._senha;
   }
 
+  public get tipo(): ETipoAluno {
+    return this._tipo;
+  }
+
   public get idade(): number | undefined {
     return this._idade;
   }
@@ -40,6 +46,7 @@ export class Aluno {
       nome: this._nome,
       email: this._email,
       idade: this._idade,
+      tipo: this._tipo,
       endereco: this.endereco?.toJSON(),
     };
   }

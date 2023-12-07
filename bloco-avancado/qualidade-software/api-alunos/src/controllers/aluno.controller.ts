@@ -4,10 +4,16 @@ import { AlunoService } from "../services";
 export class AlunoController {
   public async cadastrar(req: Request, res: Response) {
     try {
-      const { nome, email, senha, idade } = req.body;
+      const { nome, email, senha, idade, tipo } = req.body;
       const service = new AlunoService();
 
-      const response = await service.cadastrar({ nome, email, senha, idade });
+      const response = await service.cadastrar({
+        nome,
+        email,
+        senha,
+        idade,
+        tipo,
+      });
 
       return res.status(response.code).json(response);
     } catch (error: any) {

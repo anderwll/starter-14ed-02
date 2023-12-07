@@ -10,6 +10,7 @@ import {
   LoginDTO,
   ResponseDTO,
 } from "../dtos";
+import { ETipoAluno } from "../enum/aluno.enum";
 import envs from "../envs";
 import { Aluno, Endereco } from "../models";
 
@@ -33,6 +34,7 @@ export class AlunoService {
         nomeCompleto: dados.nome,
         password: dados.senha,
         idade: dados.idade,
+        tipo: dados.tipo,
       },
     });
 
@@ -173,6 +175,7 @@ export class AlunoService {
       alunoDB.nomeCompleto,
       alunoDB.email,
       alunoDB.password,
+      ETipoAluno[alunoDB.tipo],
       alunoDB.idade ?? undefined
     );
   }
