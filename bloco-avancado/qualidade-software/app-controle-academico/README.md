@@ -1,3 +1,3 @@
-# CODING DOJO 
+# APP CONTROLE ACADEMICO
 
-Desenvolvido pela 14ª edição - Turma 02
+Sistema de Gerenciamento e Controle de Alunos e suas Avaliações.
