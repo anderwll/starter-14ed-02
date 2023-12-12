@@ -1,17 +1,17 @@
 import { Grid } from "@mui/material";
-import FormCadastro from "../components/FormCadastro";
+import FormLogin from "../components/FormLogin";
 import LeftSideBar from "../components/LeftSidebar/LeftSideBar";
 import SignInSide from "../components/RightSidebar/SignInSide";
 
-function Cadastro() {
+function Login() {
   return (
     <Grid container height="100vh">
       <LeftSideBar />
-      <SignInSide title="Cadastro">
-        <FormCadastro />
+      <SignInSide title="Faça seu login">
+        <FormLogin />
       </SignInSide>
     </Grid>
   );
 }
 
-export default Cadastro;
+export default Login;

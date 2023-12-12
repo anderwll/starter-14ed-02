@@ -7,7 +7,7 @@ function Cadastro() {
   return (
     <Grid container height="100vh">
       <LeftSideBar />
-      <SignInSide title="Cadastro">
+      <SignInSide title="Cadastre-se">
         <FormCadastro />
       </SignInSide>
     </Grid>

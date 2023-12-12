@@ -1,4 +1,4 @@
-import { Box, Button, TextField } from "@mui/material";
+import { Box, Button, Link, TextField } from "@mui/material";
 import React from "react";
 
 function FormCadastro() {
@@ -47,6 +47,10 @@ function FormCadastro() {
       <Button type="submit" variant="contained" fullWidth>
         Criar conta
       </Button>
+
+      <Link href="/" variant="body2">
+        {"Já possui conta? Faça o login"}
+      </Link>
     </Box>
   );
 }
