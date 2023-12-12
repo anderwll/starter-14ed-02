@@ -6,11 +6,13 @@ import {
   Link,
   TextField,
 } from "@mui/material";
+import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../store/hooks";
 import { signIn } from "../../store/modules/user/action";
 
 function FormLogin() {
+  const formRef = useRef<HTMLFormElement>(null);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -26,15 +28,20 @@ function FormLogin() {
       payload: { token },
     } = await dispatch(signIn(data));
 
-    console.log(token);
-
     if (token) {
+      formRef.current?.reset();
       navigate("/home");
     }
   }
 
   return (
-    <Box component="form" noValidate sx={{ mt: 1 }} onSubmit={handleSubmit}>
+    <Box
+      ref={formRef}
+      component="form"
+      noValidate
+      sx={{ mt: 1 }}
+      onSubmit={handleSubmit}
+    >
       <TextField
         margin="normal"
         required

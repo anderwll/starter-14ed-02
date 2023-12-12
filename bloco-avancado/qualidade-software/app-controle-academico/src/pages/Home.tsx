@@ -8,9 +8,7 @@ function Home() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(
-      showAlert({ open: true, message: "Meu alerta de teste", type: "info" })
-    );
+    dispatch(showAlert({ message: "Bem vindo 😊", type: "info" }));
   }, []);
 
   return (

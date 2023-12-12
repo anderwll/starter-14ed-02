@@ -8,13 +8,14 @@ import {
   Select,
   TextField,
 } from "@mui/material";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useAppDispatch } from "../../store/hooks";
 import { showAlert } from "../../store/modules/alerts/alertsSlice";
 import { signUp } from "../../store/modules/user/action";
 import { CreateUser, ETypeUser } from "../../store/modules/user/types";
 
 function FormCadastro() {
+  const formRef = useRef<HTMLFormElement>(null);
   const [type, setType] = useState("");
   const dispatch = useAppDispatch();
 
@@ -44,13 +45,14 @@ function FormCadastro() {
     } = await dispatch(signUp(data));
 
     if (id) {
-      event.currentTarget.reset();
+      formRef.current?.reset();
       setType("");
     }
   }
 
   return (
     <Box
+      ref={formRef}
       component="form"
       sx={{
         "& > :not(style)": { m: 1 },
