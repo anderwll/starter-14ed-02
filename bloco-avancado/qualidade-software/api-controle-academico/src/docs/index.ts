@@ -1,5 +1,6 @@
 import { badRequest, serverError, unauthorized } from "./components";
 import { authPath } from "./paths";
+import { alunoPath } from "./paths/aluno.path";
 import { responseError } from "./schemas";
 
 export const swaggerDocs = {
@@ -19,7 +20,7 @@ export const swaggerDocs = {
   },
   paths: {
     "/auth/login": authPath,
-    "/alunos": {},
+    "/alunos": alunoPath,
     "/avaliacoes": {},
   },
   components: {
