@@ -42,11 +42,31 @@ export const authPath = {
                     user: {
                       type: "object",
                       properties: {
-                        id: {},
-                        nome: {},
-                        email: {},
-                        idade: {},
-                        tipo: {},
+                        id: {
+                          type: "string",
+                          format: "uuid",
+                          example: "57f6a11f-c76b-44df-96bf-b893a6af1081",
+                        },
+                        nome: {
+                          type: "string",
+                          example: "João Perreira",
+                        },
+                        email: {
+                          type: "string",
+                          format: "email",
+                          example: "email@email.com",
+                        },
+                        idade: {
+                          type: "interger",
+                          format: "int64",
+                          example: 18,
+                        },
+                        tipo: {
+                          type: "enum",
+                          description: "Tipo de Aluno",
+                          example: "T",
+                          enum: ["T", "F", "M"],
+                        },
                         endereco: {},
                       },
                     },
