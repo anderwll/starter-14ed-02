@@ -30,8 +30,8 @@
     "dev": "ts-node-dev --respawn --transpile-only ./src/server.ts",
     "build": "tsc",
     "start": "node ./dist/server.js",
-    "test": "jest --silent --noStackTrace --runInBand",
-    "test:unit": "jest -c jest.unit.config.ts --silent --noStackTrace",
+    "test": "jest --noStackTrace --runInBand --verbose",
+    "test:unit": "jest -c jest.unit.config.ts --noStackTrace --verbose",
     "test:verbose": "jest --verbose --runInBand --detectOpenHandles",
     "test:coverage": "jest --runInBand --coverage",
     "test:watch": "jest --silent --noStackTrace --runInBand --watchAll"
