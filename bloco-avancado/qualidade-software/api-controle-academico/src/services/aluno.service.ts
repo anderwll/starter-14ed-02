@@ -42,7 +42,7 @@ export class AlunoService {
       code: 201,
       ok: true,
       mensagem: "Aluno cadastrado!",
-      dados: this.mapToModel({ ...alunoDB, endereco: null }),
+      dados: this.mapToModel({ ...alunoDB, endereco: null }).toJSON(),
     };
   }
 
@@ -64,7 +64,7 @@ export class AlunoService {
       code: 200,
       ok: true,
       mensagem: "Alunos listados com sucesso",
-      dados: alunosDB.map((a) => this.mapToModel(a)),
+      dados: alunosDB.map((a) => this.mapToModel(a).toJSON()),
     };
   }
 
